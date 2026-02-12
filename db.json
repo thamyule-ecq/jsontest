@@ -1,0 +1,114 @@
+{
+  "meeting_meta": {
+    "title": "Nexus Portal Dashboard Review",
+    "date": "October 26, 2025",
+    "project": "Nexus Internal Employee Portal – Phase 1",
+    "attendees": ["Sarah (PM)", "David (Design)", "Mike (Engineering)"]
+  },
+  "transcript": [
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Thanks for pulling this up, David. Let’s focus on the \"Dashboard\" view today. We need to lock in the widget functionalities so Mike can start the component architecture."
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Sure. As you can see, I’ve moved to a two-column layout for the main content area, with the persistent sidebar on the left. We went with the dark theme for the sidebar to separate navigation from the data layer."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "I see the sidebar items: Dashboard, Directory, Documents... Quick question on the \"Ask Nexus AI\" item. Is that a modal or a separate page?"
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "That’s a separate chat interface page. For this dashboard view, just treat it as a navigation link. But let's look at the top row metrics."
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Right. Three key cards: Total Employees, Upcoming Events, and Open Roles. I wanted these to be \"at-a-glance\" stats."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "The \"Total Employees\" card has a trend indicator (+12% from last month). Is that calculation happening on the backend, or do I need to fetch historical data and calculate it on the client?"
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Backend should send the delta. Just display the green text if it's positive."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "Got it. And for \"Upcoming Events,\" the mockup shows \"Next: Town Hall (Tomorrow).\" What happens if there are no events?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Good catch. We need an empty state there. Maybe just \"No upcoming events\" in grey. But usually, there's always something."
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Let's move to the charts. The \"Company Performance (Revenue)\" bar chart—David, are we sure we want to show revenue figures this explicitly to all employees?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "I thought the goal was radical transparency? It visualizes the monthly revenue from Jan to July."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "I can use a standard charting library for this, likely Recharts or Chart.js. I see hover states aren't shown, but I assume hovering over a bar (like \"Feb\") should show the exact dollar amount?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Exactly. Tooltips are mandatory there."
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Okay, let's keep the revenue chart for now. Next to it, the \"Employee Pulse.\""
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "This is the aggregation of the weekly surveys. It’s a donut chart breaking down sentiment: Very Satisfied, Satisfied, Neutral, Unsatisfied."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "Just a UI note here—the legend is below the chart. Do we need that to be interactive? Like, if I click \"Very Satisfied,\" does the chart filter?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "No, static for MVP. Just color-coded. Blue for \"Very Satisfied,\" Green for \"Satisfied,\" Orange for \"Neutral,\" Red for \"Unsatisfied.\""
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Finally, the \"Latest Announcements\" section at the bottom. This is crucial for HR."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "I see we have tags here: General, HR, IT. Are these hardcoded or dynamic?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Dynamic categories. The pills need to map to specific colors. Grey for General, Pink for HR, Light Blue for IT."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "And the interaction? The arrow on the right suggests the whole row is clickable?"
+    },
+    {
+      "speaker": "David (Design)",
+      "text": "Yes, clicking the row or the arrow takes them to the full announcement detail page."
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Looks solid. Mike, any blockers on the top-right user profile or the search bar?"
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "The search bar says \"Search anything...\"—that implies a global search across Directory, Documents, and Announcements. That’s a heavy lift. Can we scope that to just \"Directory\" for Sprint 1?"
+    },
+    {
+      "speaker": "Sarah (PM)",
+      "text": "Let’s keep the UI as \"Search anything\" but prioritize Directory and Document results first. Oh, and I see Alex Morgan's profile picture—ensure we have a fallback if the user hasn't uploaded a photo."
+    },
+    {
+      "speaker": "Mike (Eng)",
+      "text": "Will do. I'll scaffold the layout based on this today."
+    }
+  ]
+}
